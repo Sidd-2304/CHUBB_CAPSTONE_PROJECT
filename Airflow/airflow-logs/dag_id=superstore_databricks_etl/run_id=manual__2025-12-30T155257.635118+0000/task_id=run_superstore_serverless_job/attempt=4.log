@@ -1,0 +1,47 @@
+[2025-12-30T16:03:23.869+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: superstore_databricks_etl.run_superstore_serverless_job manual__2025-12-30T15:52:57.635118+00:00 [queued]>
+[2025-12-30T16:03:23.879+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: superstore_databricks_etl.run_superstore_serverless_job manual__2025-12-30T15:52:57.635118+00:00 [queued]>
+[2025-12-30T16:03:23.880+0000] {taskinstance.py:2170} INFO - Starting attempt 4 of 4
+[2025-12-30T16:03:23.904+0000] {taskinstance.py:2191} INFO - Executing <Task(DatabricksRunNowOperator): run_superstore_serverless_job> on 2025-12-30 15:52:57.635118+00:00
+[2025-12-30T16:03:23.909+0000] {standard_task_runner.py:60} INFO - Started process 318 to run task
+[2025-12-30T16:03:23.913+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'superstore_databricks_etl', 'run_superstore_serverless_job', 'manual__2025-12-30T15:52:57.635118+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/superstore_databricks_etl.py', '--cfg-path', '/tmp/tmp785z48bl']
+[2025-12-30T16:03:23.919+0000] {standard_task_runner.py:88} INFO - Job 6: Subtask run_superstore_serverless_job
+[2025-12-30T16:03:24.029+0000] {task_command.py:423} INFO - Running <TaskInstance: superstore_databricks_etl.run_superstore_serverless_job manual__2025-12-30T15:52:57.635118+00:00 [running]> on host 5ef24e8109aa
+[2025-12-30T16:03:24.137+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='vivek' AIRFLOW_CTX_DAG_ID='superstore_databricks_etl' AIRFLOW_CTX_TASK_ID='run_superstore_serverless_job' AIRFLOW_CTX_EXECUTION_DATE='2025-12-30T15:52:57.635118+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-30T15:52:57.635118+00:00'
+[2025-12-30T16:03:24.149+0000] {base.py:83} INFO - Using connection ID 'databricks_default' for task execution.
+[2025-12-30T16:03:24.154+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/databricks/operators/databricks.py", line 918, in execute
+    self.run_id = hook.run_now(self.json)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/databricks/hooks/databricks.py", line 253, in run_now
+    response = self._do_api_call(RUN_NOW_ENDPOINT, json)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/databricks/hooks/databricks_base.py", line 562, in _do_api_call
+    for attempt in self._get_retry_object():
+  File "/home/airflow/.local/lib/python3.8/site-packages/tenacity/__init__.py", line 347, in __iter__
+    do = self.iter(retry_state=retry_state)
+  File "/home/airflow/.local/lib/python3.8/site-packages/tenacity/__init__.py", line 314, in iter
+    return fut.result()
+  File "/usr/local/lib/python3.8/concurrent/futures/_base.py", line 437, in result
+    return self.__get_result()
+  File "/usr/local/lib/python3.8/concurrent/futures/_base.py", line 389, in __get_result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/databricks/hooks/databricks_base.py", line 564, in _do_api_call
+    response = request_func(
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/requests/models.py", line 445, in prepare_url
+    raise InvalidURL(f"Invalid URL {url!r}: No host supplied")
+requests.exceptions.InvalidURL: Invalid URL 'https:///sql/1.0/warehouses/acb7652edf621026/api/2.1/jobs/run-now': No host supplied
+[2025-12-30T16:03:24.169+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=superstore_databricks_etl, task_id=run_superstore_serverless_job, execution_date=20251230T155257, start_date=20251230T160323, end_date=20251230T160324
+[2025-12-30T16:03:24.184+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 6 for task run_superstore_serverless_job (Invalid URL 'https:///sql/1.0/warehouses/acb7652edf621026/api/2.1/jobs/run-now': No host supplied; 318)
+[2025-12-30T16:03:24.208+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-12-30T16:03:24.228+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,31 @@
+[2026-01-04T10:24:26.382+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: student_retention_databricks_orchestration.trigger_databricks_medallion_job manual__2026-01-04T10:24:23.879381+00:00 [queued]>
+[2026-01-04T10:24:26.417+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: student_retention_databricks_orchestration.trigger_databricks_medallion_job manual__2026-01-04T10:24:23.879381+00:00 [queued]>
+[2026-01-04T10:24:26.429+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-01-04T10:24:26.494+0000] {taskinstance.py:2191} INFO - Executing <Task(DatabricksRunNowOperator): trigger_databricks_medallion_job> on 2026-01-04 10:24:23.879381+00:00
+[2026-01-04T10:24:26.525+0000] {standard_task_runner.py:60} INFO - Started process 225 to run task
+[2026-01-04T10:24:26.614+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'student_retention_databricks_orchestration', 'trigger_databricks_medallion_job', 'manual__2026-01-04T10:24:23.879381+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/studentRetension_databricks_etl.py', '--cfg-path', '/tmp/tmplhu91ssr']
+[2026-01-04T10:24:26.630+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask trigger_databricks_medallion_job
+[2026-01-04T10:24:26.864+0000] {task_command.py:423} INFO - Running <TaskInstance: student_retention_databricks_orchestration.trigger_databricks_medallion_job manual__2026-01-04T10:24:23.879381+00:00 [running]> on host 29c44edaf07d
+[2026-01-04T10:25:19.666+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='siddartha' AIRFLOW_CTX_DAG_ID='student_retention_databricks_orchestration' AIRFLOW_CTX_TASK_ID='trigger_databricks_medallion_job' AIRFLOW_CTX_EXECUTION_DATE='2026-01-04T10:24:23.879381+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-04T10:24:23.879381+00:00'
+[2026-01-04T10:25:19.691+0000] {base.py:83} INFO - Using connection ID 'databricks_default' for task execution.
+[2026-01-04T10:24:28.852+0000] {databricks.py:66} INFO - Run submitted with run_id: 509916553879779
+[2026-01-04T10:24:31.109+0000] {databricks.py:128} INFO - trigger_databricks_medallion_job in run state: {'life_cycle_state': 'QUEUED', 'result_state': '', 'state_message': ''}
+[2026-01-04T10:24:31.110+0000] {databricks.py:129} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:24:31.111+0000] {databricks.py:130} INFO - Sleeping for 60 seconds.
+[2026-01-04T10:25:32.297+0000] {databricks.py:128} INFO - trigger_databricks_medallion_job in run state: {'life_cycle_state': 'QUEUED', 'result_state': '', 'state_message': ''}
+[2026-01-04T10:25:32.300+0000] {databricks.py:129} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:25:32.302+0000] {databricks.py:130} INFO - Sleeping for 60 seconds.
+[2026-01-04T10:26:33.758+0000] {databricks.py:128} INFO - trigger_databricks_medallion_job in run state: {'life_cycle_state': 'QUEUED', 'result_state': '', 'state_message': ''}
+[2026-01-04T10:26:33.760+0000] {databricks.py:129} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:26:33.761+0000] {databricks.py:130} INFO - Sleeping for 60 seconds.
+[2026-01-04T10:27:35.049+0000] {databricks.py:128} INFO - trigger_databricks_medallion_job in run state: {'life_cycle_state': 'RUNNING', 'result_state': '', 'state_message': ''}
+[2026-01-04T10:27:35.056+0000] {databricks.py:129} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:27:35.058+0000] {databricks.py:130} INFO - Sleeping for 60 seconds.
+[2026-01-04T10:28:36.066+0000] {databricks.py:128} INFO - trigger_databricks_medallion_job in run state: {'life_cycle_state': 'RUNNING', 'result_state': '', 'state_message': ''}
+[2026-01-04T10:28:36.071+0000] {databricks.py:129} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:28:36.072+0000] {databricks.py:130} INFO - Sleeping for 60 seconds.
+[2026-01-04T10:29:37.370+0000] {databricks.py:77} INFO - trigger_databricks_medallion_job completed successfully.
+[2026-01-04T10:29:37.376+0000] {databricks.py:78} INFO - View run status, Spark UI, and logs at https://dbc-b05c1d9b-6b7d.cloud.databricks.com/?o=871826080196876#job/195283395503801/run/509916553879779
+[2026-01-04T10:29:37.403+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=student_retention_databricks_orchestration, task_id=trigger_databricks_medallion_job, execution_date=20260104T102423, start_date=20260104T102426, end_date=20260104T102937
+[2026-01-04T10:29:37.455+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-04T10:29:37.486+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
